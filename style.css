@@ -213,3 +213,84 @@ button:hover {
 .back-button:hover {
     background-color: #45a049;
 }
+
+
+
+
+
+/* remove */
+
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.result.correct {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.result.incorrect {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+blockquote {
+    margin: 10px 0;
+    padding-left: 10px;
+    border-left: 4px solid #ccc;
+    font-style: italic;
+    color: #555;
+}
+
+
+#next-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#next-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.option {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.option:hover {
+    background-color: #f9f9f9;
+}
+
+.option input {
+    display: none;
+}
+
+.option.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.option.incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}

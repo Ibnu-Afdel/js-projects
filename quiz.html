@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="quiz.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Quran Quiz</h1>
+            <p>Test your knowledge of the Quran!</p>
+            <a href="index.html" class="back-button">Back to Home</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="quiz-container">
+                <p id="ayah-text"></p>
+                <form id="quiz-form">
+                    <div id="options"></div>
+                </form>
+                <div id="result-message"></div>
+                <button id="next-button" style="display: none;">Next</button>
+                <p>Score: <span id="score">0</span></p>
+            </div>            
+        </div>
+    </main>
+</body>
+</html>

@@ -10,10 +10,12 @@ const fetchQuizData = async () => {
         const data = await response.json();
 
         if (data.status === "OK") {
-            const { text: ayahText, surah } = data.data;
+            const { text: ayahText, surah, numberInSurah} = data.data;
             correctAnswer = surah.englishName;
 
             document.getElementById("ayah-text").innerText = ayahText;
+            
+            document.getElementById("ayah-number").innerText = `Surah: ${surah.englishName}, Ayah: ${numberInSurah}`;
 
             const allSurahs = await fetch("https://api.alquran.cloud/v1/surah").then((res) =>
                 res.json()
@@ -65,8 +67,9 @@ document.getElementById("quiz-form").addEventListener("change", (e) => {
         }
     });
 
-    // Fetch current Ayah text
+    // Fetch current Ayah text and Ayah number
     const ayahText = document.getElementById("ayah-text").innerText;
+    const ayahNumber = document.getElementById("ayah-number").innerText;
 
     const resultMessage = document.getElementById("result-message");
     if (userAnswer === correctAnswer) {
@@ -76,8 +79,10 @@ document.getElementById("quiz-form").addEventListener("change", (e) => {
                 <p><strong>Correct!</strong></p>
                 <p>The Ayah text was:</p>
                 <blockquote>${ayahText}</blockquote>
+                <p>${ayahNumber}</p>
             </div>`;
     } else {
+        score--;
         resultMessage.innerHTML = `
             <div class="result incorrect">
                 <p><strong>Incorrect!</strong></p>
@@ -85,6 +90,7 @@ document.getElementById("quiz-form").addEventListener("change", (e) => {
                 <p>The correct answer is: <em>${correctAnswer}</em></p>
                 <p>The Ayah text was:</p>
                 <blockquote>${ayahText}</blockquote>
+                <p>${ayahNumber}</p>
             </div>`;
     }
 
@@ -95,6 +101,7 @@ document.getElementById("quiz-form").addEventListener("change", (e) => {
     // Show the "Next" button
     document.getElementById("next-button").style.display = "block";
 });
+
 
 // Handle the Next button
 document.getElementById("next-button").addEventListener("click", () => {

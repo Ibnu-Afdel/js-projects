@@ -15,7 +15,7 @@ const fetchQuizData = async () => {
 
             document.getElementById("ayah-text").innerText = ayahText;
             
-            document.getElementById("ayah-number").innerText = `Surah: ${surah.englishName}, Ayah: ${numberInSurah}`;
+            document.getElementById("ayah-number").innerText = `Ayah: ${numberInSurah}`;
 
             const allSurahs = await fetch("https://api.alquran.cloud/v1/surah").then((res) =>
                 res.json()
@@ -41,7 +41,6 @@ const fetchQuizData = async () => {
                     .join("");
                 document.getElementById("options").innerHTML = optionsHtml;
 
-                // Reset result message and styling
                 document.getElementById("result-message").innerHTML = "";
                 document.getElementById("next-button").style.display = "none";
                 document.getElementById("quiz-form").reset();
@@ -94,19 +93,15 @@ document.getElementById("quiz-form").addEventListener("change", (e) => {
             </div>`;
     }
 
-    // Update score
     document.getElementById("score").innerText = score;
     localStorage.setItem("score", score);
 
-    // Show the "Next" button
     document.getElementById("next-button").style.display = "block";
 });
 
 
-// Handle the Next button
 document.getElementById("next-button").addEventListener("click", () => {
     fetchQuizData();
 });
 
-// Initial Load
 fetchQuizData();
